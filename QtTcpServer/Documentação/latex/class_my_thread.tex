@@ -1,0 +1,239 @@
+\hypertarget{class_my_thread}{}\section{Referência da Classe My\+Thread}
+\label{class_my_thread}\index{My\+Thread@{My\+Thread}}
+
+
+The \mbox{\hyperlink{class_my_thread}{My\+Thread}} class cria uma thread que lida com o tratamento de uma conexao T\+CP de entrada.  
+
+
+
+
+{\ttfamily \#include $<$mythread.\+h$>$}
+
+Diagrama de hierarquia para My\+Thread\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_my_thread}
+\end{center}
+\end{figure}
+\subsection*{Slots Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_my_thread_a277618fdd448b927f2e250c2076fc176}{ready\+Read}} ()
+\item 
+void \mbox{\hyperlink{class_my_thread_a447710039787ae20134a9b572487840f}{disconnected}} ()
+\end{DoxyCompactItemize}
+\subsection*{Sinais}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_my_thread_aebf11d93838f22c9547d0c6aa97002be}{error}} (Q\+Tcp\+Socket\+::\+Socket\+Error socketerror)
+\item 
+void \mbox{\hyperlink{class_my_thread_ae49528d4ec1b2208240f707f5aa74adf}{message}} (Q\+String)
+\end{DoxyCompactItemize}
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_my_thread_ac1b04b0fa6b32038e810c7105ef762f6}{My\+Thread}} (int ID, Q\+Object $\ast$parent, \mbox{\hyperlink{class_data_storage}{Data\+Storage}} $\ast$storage)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_my_thread}{My\+Thread}} eh o construtor da classe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_my_thread_a48f2e366e852087c53705f64e1ee65c2}{run}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+The \mbox{\hyperlink{class_my_thread}{My\+Thread}} class cria uma thread que lida com o tratamento de uma conexao T\+CP de entrada. 
+
+\subsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_my_thread_ac1b04b0fa6b32038e810c7105ef762f6}\label{class_my_thread_ac1b04b0fa6b32038e810c7105ef762f6}} 
+\index{My\+Thread@{My\+Thread}!My\+Thread@{My\+Thread}}
+\index{My\+Thread@{My\+Thread}!My\+Thread@{My\+Thread}}
+\subsubsection{\texorpdfstring{My\+Thread()}{MyThread()}}
+{\footnotesize\ttfamily My\+Thread\+::\+My\+Thread (\begin{DoxyParamCaption}\item[{int}]{ID,  }\item[{Q\+Object $\ast$}]{parent,  }\item[{\mbox{\hyperlink{class_data_storage}{Data\+Storage}} $\ast$}]{storage }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_my_thread}{My\+Thread}} eh o construtor da classe. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em ID} & eh o identificador da thread \\
+\hline
+{\em parent} & \\
+\hline
+{\em storage} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+6                                                                 :
+7   QThread (parent)
+8 \{
+9   this->socketDescriptor = ID;
+10   this->storage = storage;
+11 \}
+\end{DoxyCode}
+
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_my_thread_a447710039787ae20134a9b572487840f}\label{class_my_thread_a447710039787ae20134a9b572487840f}} 
+\index{My\+Thread@{My\+Thread}!disconnected@{disconnected}}
+\index{disconnected@{disconnected}!My\+Thread@{My\+Thread}}
+\subsubsection{\texorpdfstring{disconnected}{disconnected}}
+{\footnotesize\ttfamily void My\+Thread\+::disconnected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyCode}
+110                            \{
+111   str = QString(\textcolor{stringliteral}{"<i>"}) + QString().setNum(socketDescriptor)+
+112       \textcolor{stringliteral}{" <font color=\(\backslash\)"red\(\backslash\)">Disconnected</font></i>"};
+113   emit \mbox{\hyperlink{class_my_thread_ae49528d4ec1b2208240f707f5aa74adf}{message}}(str);
+114   socket->deleteLater();
+115   \textcolor{comment}{// diz a thread para parar}
+116   exit(0);
+117 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_my_thread_aebf11d93838f22c9547d0c6aa97002be}\label{class_my_thread_aebf11d93838f22c9547d0c6aa97002be}} 
+\index{My\+Thread@{My\+Thread}!error@{error}}
+\index{error@{error}!My\+Thread@{My\+Thread}}
+\subsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily void My\+Thread\+::error (\begin{DoxyParamCaption}\item[{Q\+Tcp\+Socket\+::\+Socket\+Error}]{socketerror }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+\begin{DoxyCode}
+150 \{
+151     \textcolor{keywordtype}{void} *\_a[] = \{ Q\_NULLPTR, \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(&\_t1)) \};
+152     QMetaObject::activate(\textcolor{keyword}{this}, &staticMetaObject, 0, \_a);
+153 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_my_thread_ae49528d4ec1b2208240f707f5aa74adf}\label{class_my_thread_ae49528d4ec1b2208240f707f5aa74adf}} 
+\index{My\+Thread@{My\+Thread}!message@{message}}
+\index{message@{message}!My\+Thread@{My\+Thread}}
+\subsubsection{\texorpdfstring{message}{message}}
+{\footnotesize\ttfamily void My\+Thread\+::message (\begin{DoxyParamCaption}\item[{Q\+String}]{\+\_\+t1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+\begin{DoxyCode}
+157 \{
+158     \textcolor{keywordtype}{void} *\_a[] = \{ Q\_NULLPTR, \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(&\_t1)) \};
+159     QMetaObject::activate(\textcolor{keyword}{this}, &staticMetaObject, 1, \_a);
+160 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_my_thread_a277618fdd448b927f2e250c2076fc176}\label{class_my_thread_a277618fdd448b927f2e250c2076fc176}} 
+\index{My\+Thread@{My\+Thread}!ready\+Read@{ready\+Read}}
+\index{ready\+Read@{ready\+Read}!My\+Thread@{My\+Thread}}
+\subsubsection{\texorpdfstring{ready\+Read}{readyRead}}
+{\footnotesize\ttfamily void My\+Thread\+::ready\+Read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyCode}
+35                         \{
+36   vector<Entry> entry;
+37   vector<QHostAddress> hostList;
+38   \mbox{\hyperlink{struct_entry}{Entry}} value;
+39   qint64 msecdate;
+40   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} nsamples;
+41   QString cmd;
+42 
+43   QString str = socket->readLine().replace(\textcolor{stringliteral}{"\(\backslash\)n"},\textcolor{stringliteral}{""}).replace(\textcolor{stringliteral}{"\(\backslash\)r"},\textcolor{stringliteral}{""});
+44   emit \mbox{\hyperlink{class_my_thread_ae49528d4ec1b2208240f707f5aa74adf}{message}}(str);
+45   QStringList list;
+46 
+47   list = str.split(\textcolor{stringliteral}{" "});
+48   \textcolor{comment}{// parses the string list}
+49   \textcolor{comment}{//storage->addData(peerAddress,QDateTime::currentDateTime(), 23);}
+50 
+51   cmd = list.at(0);
+52 
+53   \textcolor{comment}{// lista os hosts produtores de dados}
+54   \textcolor{keywordflow}{if}(cmd == \textcolor{stringliteral}{"list"})\{
+55     hostList = storage->\mbox{\hyperlink{class_data_storage_a05e60f4e62fb68f588e3f381d40b6bbd}{getHostList}}();
+56     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<hostList.size(); i++)\{
+57       socket->write(hostList[i].toString().toStdString().c\_str());
+58       socket->write(\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"});
+59     \}
+60   \}
+61 
+62   \textcolor{comment}{// lista as entradas de um dado host}
+63   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(cmd == \textcolor{stringliteral}{"get"})\{
+64     \textcolor{comment}{// recupera o argumento fornecido para get}
+65     \textcolor{comment}{// ex: get 127.0.0.1}
+66     \textcolor{keywordflow}{if}(list.size() == 3)\{
+67       cmd = list.at(1);
+68       str = list.at(2);
+69       nsamples = str.toUInt();
+70      \textcolor{comment}{// qDebug() << "pass 1";}
+71       QHostAddress address(cmd);
+72       \textcolor{comment}{// se o endereco for valido...}
+73       \textcolor{keywordflow}{if}(!address.isNull())\{
+74         \textcolor{comment}{// recupera entradas para um dado endereco}
+75         entry = storage->\mbox{\hyperlink{class_data_storage_a716fe9bd808cb8ea9f0ef153bf01a633}{getData}}(address, nsamples);
+76         \textcolor{comment}{// mostra as entradas para o cliente}
+77         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<entry.size(); i++)\{
+78           value = entry[i];
+79           socket->write(QString().number(value.\mbox{\hyperlink{struct_entry_a0a78d616ccc342ef6c34d849288d7c85}{theTime}}).toStdString().c\_str());
+80           socket->write(\textcolor{stringliteral}{" "});
+81           socket->write(QString().number(value.\mbox{\hyperlink{struct_entry_a78ebc6241b1baaa2551b2cf89f519960}{measurement}}).toStdString().c\_str());
+82           socket->write(\textcolor{stringliteral}{"\(\backslash\)n"});
+83         \}
+84       \}
+85     \}
+86   \}
+87 
+88   \textcolor{comment}{// insere dados de telemetria}
+89   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(cmd == \textcolor{stringliteral}{"set"})\{
+90     \textcolor{comment}{// sintaxe: set tempo\_em\_ms float\_value}
+91     \textcolor{comment}{// O tempo deverá ser diferenca de hora para 1970-01-01T00:00:00.000}
+92     \textcolor{comment}{// ex: set 1496156112708 9.16666}
+93     \textcolor{keywordflow}{if}(list.size() == 3)\{
+94       \textcolor{keywordtype}{bool} ok;
+95       cmd = list.at(1);
+96       msecdate = cmd.toLongLong(&ok);
+97       \textcolor{keywordflow}{if}(ok)\{
+98         cmd = list.at(2);
+99         value.\mbox{\hyperlink{struct_entry_a78ebc6241b1baaa2551b2cf89f519960}{measurement}} = cmd.toFloat(&ok);
+100         \textcolor{keywordflow}{if}(ok)\{
+101           storage->\mbox{\hyperlink{class_data_storage_ab46b18762db5b17b3e0a97150079cb78}{addData}}(socket->peerAddress(),msecdate,
+102                            value.\mbox{\hyperlink{struct_entry_a78ebc6241b1baaa2551b2cf89f519960}{measurement}});
+103         \}
+104       \}
+105     \}
+106   \}
+107 
+108 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_my_thread_a48f2e366e852087c53705f64e1ee65c2}\label{class_my_thread_a48f2e366e852087c53705f64e1ee65c2}} 
+\index{My\+Thread@{My\+Thread}!run@{run}}
+\index{run@{run}!My\+Thread@{My\+Thread}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void My\+Thread\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+13                   \{
+14   \textcolor{comment}{// thread starts here}
+15   str = QString(\textcolor{stringliteral}{"<i>"}) +
+16       QString().setNum(socketDescriptor) +
+17       \textcolor{stringliteral}{" <font color=\(\backslash\)"red\(\backslash\)">Connected! starting thread</blue></i>"};
+18   emit \mbox{\hyperlink{class_my_thread_ae49528d4ec1b2208240f707f5aa74adf}{message}}(str);
+19   socket = \textcolor{keyword}{new} QTcpSocket();
+20   \textcolor{keywordflow}{if}(!socket->setSocketDescriptor(this->socketDescriptor))\{
+21     emit \mbox{\hyperlink{class_my_thread_aebf11d93838f22c9547d0c6aa97002be}{error}}(socket->error());
+22     \textcolor{keywordflow}{return};
+23   \}
+24   \textcolor{comment}{// direct connection slot invocado diretamente}
+25   connect(socket,SIGNAL(\mbox{\hyperlink{class_my_thread_a277618fdd448b927f2e250c2076fc176}{readyRead}}()),\textcolor{keyword}{this},SLOT(\mbox{\hyperlink{class_my_thread_a277618fdd448b927f2e250c2076fc176}{readyRead}}()),Qt::DirectConnection);
+26   connect(socket,SIGNAL(\mbox{\hyperlink{class_my_thread_a447710039787ae20134a9b572487840f}{disconnected}}()),\textcolor{keyword}{this},SLOT(\mbox{\hyperlink{class_my_thread_a447710039787ae20134a9b572487840f}{disconnected}}()),
+      Qt::DirectConnection);
+27 
+28   str = QString().setNum(socketDescriptor) + \textcolor{stringliteral}{" client connected"};
+29   emit \mbox{\hyperlink{class_my_thread_ae49528d4ec1b2208240f707f5aa74adf}{message}}(str);
+30   peerAddress = socket->peerAddress();
+31   \textcolor{comment}{//qDebug() << peerAddress.toString();}
+32   exec();
+33 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/mateu/\+Documents/\+Projeto Final D\+C\+A 1202/\+Qt\+Tcp\+Server/\mbox{\hyperlink{mythread_8h}{mythread.\+h}}\item 
+C\+:/\+Users/mateu/\+Documents/\+Projeto Final D\+C\+A 1202/\+Qt\+Tcp\+Server/\mbox{\hyperlink{moc__mythread_8cpp}{moc\+\_\+mythread.\+cpp}}\item 
+C\+:/\+Users/mateu/\+Documents/\+Projeto Final D\+C\+A 1202/\+Qt\+Tcp\+Server/\mbox{\hyperlink{mythread_8cpp}{mythread.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,183 @@
+\hypertarget{class_my_server}{}\section{Referência da Classe My\+Server}
+\label{class_my_server}\index{My\+Server@{My\+Server}}
+
+
+The \mbox{\hyperlink{class_my_server}{My\+Server}} class inicia um servidor T\+CP capaz de \char`\"{}ouvir\char`\"{} a porta 1234.  
+
+
+
+
+{\ttfamily \#include $<$myserver.\+h$>$}
+
+Diagrama de hierarquia para My\+Server\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_my_server}
+\end{center}
+\end{figure}
+\subsection*{Slots Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_my_server_ac795ee6f1607c0fa4e635a0da2bf2164}{receive\+Msg}} (Q\+String str)
+\end{DoxyCompactItemize}
+\subsection*{Sinais}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_my_server_a2b884bce37840b1b461363a37b463b30}{message}} (Q\+String)
+\end{DoxyCompactItemize}
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_my_server_ac9e5ca7b551a5df90d5b39260f7e5404}{My\+Server}} (Q\+Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_my_server}{My\+Server}} é o construtor da classe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_my_server_a962f0e205a0aaf08b12d50d1315a8c90}{start\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Start\+Server start the T\+CP server. \end{DoxyCompactList}\item 
+Q\+String\+List \mbox{\hyperlink{class_my_server_ac10d498dcc2b5d691f131f17b6602a59}{get\+I\+P\+List}} ()
+\begin{DoxyCompactList}\small\item\em get\+I\+P\+List return a list of I\+Ps used by server \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membros Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_my_server_a635c7a1e6817285ffb1a2a3842df010b}{incoming\+Connection}} (qintptr socket\+Descriptor)
+\begin{DoxyCompactList}\small\item\em incoming\+Connection decide o que fazer quando uma nova conexao é iniciada \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+The \mbox{\hyperlink{class_my_server}{My\+Server}} class inicia um servidor T\+CP capaz de \char`\"{}ouvir\char`\"{} a porta 1234. 
+
+\subsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_my_server_ac9e5ca7b551a5df90d5b39260f7e5404}\label{class_my_server_ac9e5ca7b551a5df90d5b39260f7e5404}} 
+\index{My\+Server@{My\+Server}!My\+Server@{My\+Server}}
+\index{My\+Server@{My\+Server}!My\+Server@{My\+Server}}
+\subsubsection{\texorpdfstring{My\+Server()}{MyServer()}}
+{\footnotesize\ttfamily My\+Server\+::\+My\+Server (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_my_server}{My\+Server}} é o construtor da classe. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em parent} & eh o pai do objeto (nao usado) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+3                                   :
+4   QTcpServer(parent)
+5 \{
+6 
+7 \}
+\end{DoxyCode}
+
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_my_server_ac10d498dcc2b5d691f131f17b6602a59}\label{class_my_server_ac10d498dcc2b5d691f131f17b6602a59}} 
+\index{My\+Server@{My\+Server}!get\+I\+P\+List@{get\+I\+P\+List}}
+\index{get\+I\+P\+List@{get\+I\+P\+List}!My\+Server@{My\+Server}}
+\subsubsection{\texorpdfstring{get\+I\+P\+List()}{getIPList()}}
+{\footnotesize\ttfamily Q\+String\+List My\+Server\+::get\+I\+P\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+I\+P\+List return a list of I\+Ps used by server 
+
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+22                                \{
+23   \textcolor{keywordflow}{return} iplist;
+24 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_my_server_a635c7a1e6817285ffb1a2a3842df010b}\label{class_my_server_a635c7a1e6817285ffb1a2a3842df010b}} 
+\index{My\+Server@{My\+Server}!incoming\+Connection@{incoming\+Connection}}
+\index{incoming\+Connection@{incoming\+Connection}!My\+Server@{My\+Server}}
+\subsubsection{\texorpdfstring{incoming\+Connection()}{incomingConnection()}}
+{\footnotesize\ttfamily void My\+Server\+::incoming\+Connection (\begin{DoxyParamCaption}\item[{qintptr}]{socket\+Descriptor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+incoming\+Connection decide o que fazer quando uma nova conexao é iniciada 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em socket\+Descriptor} & é o identificador do socket para a conexao \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+30                                                          \{
+31   QString str;
+32   str = QString(\textcolor{stringliteral}{"<i>"}) + QString().setNum(socketDescriptor) +
+33       \textcolor{stringliteral}{" connecting...</i>"};
+34   emit \mbox{\hyperlink{class_my_server_a2b884bce37840b1b461363a37b463b30}{message}}(str);
+35   \mbox{\hyperlink{class_my_thread}{MyThread}} *thread = \textcolor{keyword}{new} \mbox{\hyperlink{class_my_thread}{MyThread}}(socketDescriptor,\textcolor{keyword}{this}, &storage);
+36   \textcolor{comment}{// assegura que o objeto da thread será deletado quando a thread}
+37   \textcolor{comment}{// for finalizada.}
+38   connect(thread,SIGNAL(finished()), thread, SLOT(deleteLater()));
+39 
+40   \textcolor{comment}{// redireciona as mensagens enviadas pela thread para serem reemitidos}
+41   \textcolor{comment}{// pelo servidor}
+42   connect(thread,SIGNAL(\mbox{\hyperlink{class_my_server_a2b884bce37840b1b461363a37b463b30}{message}}(QString)), \textcolor{keyword}{this}, SLOT(\mbox{\hyperlink{class_my_server_ac795ee6f1607c0fa4e635a0da2bf2164}{receiveMsg}}(QString)));
+43   thread->\mbox{\hyperlink{class_my_thread_a48f2e366e852087c53705f64e1ee65c2}{run}}();
+44 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_my_server_a2b884bce37840b1b461363a37b463b30}\label{class_my_server_a2b884bce37840b1b461363a37b463b30}} 
+\index{My\+Server@{My\+Server}!message@{message}}
+\index{message@{message}!My\+Server@{My\+Server}}
+\subsubsection{\texorpdfstring{message}{message}}
+{\footnotesize\ttfamily void My\+Server\+::message (\begin{DoxyParamCaption}\item[{Q\+String}]{\+\_\+t1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+\begin{DoxyCode}
+132 \{
+133     \textcolor{keywordtype}{void} *\_a[] = \{ Q\_NULLPTR, \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(&\_t1)) \};
+134     QMetaObject::activate(\textcolor{keyword}{this}, &staticMetaObject, 0, \_a);
+135 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_my_server_ac795ee6f1607c0fa4e635a0da2bf2164}\label{class_my_server_ac795ee6f1607c0fa4e635a0da2bf2164}} 
+\index{My\+Server@{My\+Server}!receive\+Msg@{receive\+Msg}}
+\index{receive\+Msg@{receive\+Msg}!My\+Server@{My\+Server}}
+\subsubsection{\texorpdfstring{receive\+Msg}{receiveMsg}}
+{\footnotesize\ttfamily void My\+Server\+::receive\+Msg (\begin{DoxyParamCaption}\item[{Q\+String}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyCode}
+26                                     \{
+27   emit \mbox{\hyperlink{class_my_server_a2b884bce37840b1b461363a37b463b30}{message}}(str);
+28 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_my_server_a962f0e205a0aaf08b12d50d1315a8c90}\label{class_my_server_a962f0e205a0aaf08b12d50d1315a8c90}} 
+\index{My\+Server@{My\+Server}!start\+Server@{start\+Server}}
+\index{start\+Server@{start\+Server}!My\+Server@{My\+Server}}
+\subsubsection{\texorpdfstring{start\+Server()}{startServer()}}
+{\footnotesize\ttfamily void My\+Server\+::start\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Start\+Server start the T\+CP server. 
+
+
+\begin{DoxyCode}
+9                           \{
+10   \textcolor{keywordflow}{if}(!this->listen(QHostAddress::Any, 1234))\{
+11     emit \mbox{\hyperlink{class_my_server_a2b884bce37840b1b461363a37b463b30}{message}}(QString(\textcolor{stringliteral}{"<b>server did not start!</b>"}));
+12   \}
+13   \textcolor{keywordflow}{else}\{
+14     emit \mbox{\hyperlink{class_my_server_a2b884bce37840b1b461363a37b463b30}{message}}(QString(\textcolor{stringliteral}{"<b>server started!</b>"}));
+15     \textcolor{keywordflow}{foreach} (\textcolor{keyword}{const} QHostAddress &address, QNetworkInterface::allAddresses()) \{
+16       \textcolor{keywordflow}{if} (address.protocol() == QAbstractSocket::IPv4Protocol && address != QHostAddress(
+      QHostAddress::LocalHost))
+17         iplist << address.toString();
+18     \}
+19   \}
+20 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/mateu/\+Documents/\+Projeto Final D\+C\+A 1202/\+Qt\+Tcp\+Server/\mbox{\hyperlink{myserver_8h}{myserver.\+h}}\item 
+C\+:/\+Users/mateu/\+Documents/\+Projeto Final D\+C\+A 1202/\+Qt\+Tcp\+Server/\mbox{\hyperlink{moc__myserver_8cpp}{moc\+\_\+myserver.\+cpp}}\item 
+C\+:/\+Users/mateu/\+Documents/\+Projeto Final D\+C\+A 1202/\+Qt\+Tcp\+Server/\mbox{\hyperlink{myserver_8cpp}{myserver.\+cpp}}\end{DoxyCompactItemize}

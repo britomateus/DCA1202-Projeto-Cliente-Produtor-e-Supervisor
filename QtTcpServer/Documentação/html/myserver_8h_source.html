@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Servidor: Código-Fonte de C:/Users/mateu/Documents/Projeto Final DCA 1202/QtTcpServer/myserver.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Servidor
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_790efee00915ac1ec28bcf095c4eef34.html">Projeto Final DCA 1202</a></li><li class="navelem"><a class="el" href="dir_859cd1b92683746d25aa9bddb73e075c.html">QtTcpServer</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">myserver.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="myserver_8h.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MYSERVER_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MYSERVER_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QTcpServer&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QDebug&gt;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QStringList&gt;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mythread_8h.html">mythread.h</a>&quot;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="datastorage_8h.html">datastorage.h</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_my_server.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_my_server.html">MyServer</a> : <span class="keyword">public</span> QTcpServer</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  Q_OBJECT</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <a class="code" href="class_my_server.html#ac9e5ca7b551a5df90d5b39260f7e5404">MyServer</a>(QObject *parent = 0);</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_my_server.html#a962f0e205a0aaf08b12d50d1315a8c90">startServer</a>();</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  QStringList <a class="code" href="class_my_server.html#ac10d498dcc2b5d691f131f17b6602a59">getIPList</a>();</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;signals:</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_my_server.html#a2b884bce37840b1b461363a37b463b30">message</a>(QString);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span> slots:</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_my_server.html#ac795ee6f1607c0fa4e635a0da2bf2164">receiveMsg</a>(QString str);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">protected</span>:</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_my_server.html#a635c7a1e6817285ffb1a2a3842df010b">incomingConnection</a>(qintptr socketDescriptor);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">int</span> ok;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <a class="code" href="class_data_storage.html">DataStorage</a> storage;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  QStringList iplist;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif // MYSERVER_H</span></div><div class="ttc" id="class_my_server_html_a635c7a1e6817285ffb1a2a3842df010b"><div class="ttname"><a href="class_my_server.html#a635c7a1e6817285ffb1a2a3842df010b">MyServer::incomingConnection</a></div><div class="ttdeci">void incomingConnection(qintptr socketDescriptor)</div><div class="ttdoc">incomingConnection decide o que fazer quando uma nova conexao é iniciada </div><div class="ttdef"><b>Definition:</b> myserver.cpp:30</div></div>
+<div class="ttc" id="class_data_storage_html"><div class="ttname"><a href="class_data_storage.html">DataStorage</a></div><div class="ttdef"><b>Definition:</b> datastorage.h:16</div></div>
+<div class="ttc" id="class_my_server_html_ac10d498dcc2b5d691f131f17b6602a59"><div class="ttname"><a href="class_my_server.html#ac10d498dcc2b5d691f131f17b6602a59">MyServer::getIPList</a></div><div class="ttdeci">QStringList getIPList()</div><div class="ttdoc">getIPList return a list of IPs used by server </div><div class="ttdef"><b>Definition:</b> myserver.cpp:22</div></div>
+<div class="ttc" id="mythread_8h_html"><div class="ttname"><a href="mythread_8h.html">mythread.h</a></div></div>
+<div class="ttc" id="class_my_server_html_a962f0e205a0aaf08b12d50d1315a8c90"><div class="ttname"><a href="class_my_server.html#a962f0e205a0aaf08b12d50d1315a8c90">MyServer::startServer</a></div><div class="ttdeci">void startServer()</div><div class="ttdoc">StartServer start the TCP server. </div><div class="ttdef"><b>Definition:</b> myserver.cpp:9</div></div>
+<div class="ttc" id="class_my_server_html_ac795ee6f1607c0fa4e635a0da2bf2164"><div class="ttname"><a href="class_my_server.html#ac795ee6f1607c0fa4e635a0da2bf2164">MyServer::receiveMsg</a></div><div class="ttdeci">void receiveMsg(QString str)</div><div class="ttdef"><b>Definition:</b> myserver.cpp:26</div></div>
+<div class="ttc" id="datastorage_8h_html"><div class="ttname"><a href="datastorage_8h.html">datastorage.h</a></div></div>
+<div class="ttc" id="class_my_server_html_a2b884bce37840b1b461363a37b463b30"><div class="ttname"><a href="class_my_server.html#a2b884bce37840b1b461363a37b463b30">MyServer::message</a></div><div class="ttdeci">void message(QString)</div><div class="ttdef"><b>Definition:</b> moc_myserver.cpp:131</div></div>
+<div class="ttc" id="class_my_server_html"><div class="ttname"><a href="class_my_server.html">MyServer</a></div><div class="ttdoc">The MyServer class inicia um servidor TCP capaz de &quot;ouvir&quot; a porta 1234. </div><div class="ttdef"><b>Definition:</b> myserver.h:15</div></div>
+<div class="ttc" id="class_my_server_html_ac9e5ca7b551a5df90d5b39260f7e5404"><div class="ttname"><a href="class_my_server.html#ac9e5ca7b551a5df90d5b39260f7e5404">MyServer::MyServer</a></div><div class="ttdeci">MyServer(QObject *parent=0)</div><div class="ttdoc">MyServer é o construtor da classe. </div><div class="ttdef"><b>Definition:</b> myserver.cpp:3</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

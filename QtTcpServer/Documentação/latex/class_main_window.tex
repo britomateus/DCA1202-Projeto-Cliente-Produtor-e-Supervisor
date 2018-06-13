@@ -1,0 +1,83 @@
+\hypertarget{class_main_window}{}\section{Referência da Classe Main\+Window}
+\label{class_main_window}\index{Main\+Window@{Main\+Window}}
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+Diagrama de hierarquia para Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_window}
+\end{center}
+\end{figure}
+\subsection*{Slots Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_main_window_a0edca0c59fb238bea02b248c90b89698}{show\+Message}} (Q\+String msg)
+\end{DoxyCompactItemize}
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{Main\+Window}} (Q\+Widget $\ast$parent=0)
+\item 
+\mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\+Main\+Window}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}\label{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}} 
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{Main\+Window()}{MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+\begin{DoxyCode}
+6                                       :
+7   QMainWindow(parent),
+8   ui(\textcolor{keyword}{new} \mbox{\hyperlink{class_ui_1_1_main_window}{Ui::MainWindow}})
+9 \{
+10   ui->\mbox{\hyperlink{class_ui___main_window_acf4a0872c4c77d8f43a2ec66ed849b58}{setupUi}}(\textcolor{keyword}{this});
+11   connect(&Server,
+12           SIGNAL(message(QString)),
+13           \textcolor{keyword}{this},
+14           SLOT(\mbox{\hyperlink{class_main_window_a0edca0c59fb238bea02b248c90b89698}{showMessage}}(QString)));
+15   Server.\mbox{\hyperlink{class_my_server_a962f0e205a0aaf08b12d50d1315a8c90}{startServer}}();
+16   QStringList list;
+17   list = Server.\mbox{\hyperlink{class_my_server_ac10d498dcc2b5d691f131f17b6602a59}{getIPList}}();
+18   ui->\mbox{\hyperlink{class_ui___main_window_ae647a15635ba8a0e5d5aec475db99d8f}{listWidget}}->addItems(list);
+19 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}} 
+\index{Main\+Window@{Main\+Window}!````~Main\+Window@{$\sim$\+Main\+Window}}
+\index{````~Main\+Window@{$\sim$\+Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{$\sim$\+Main\+Window()}{~MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::$\sim$\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+22 \{
+23   \textcolor{keyword}{delete} ui;
+24 \}
+\end{DoxyCode}
+
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_main_window_a0edca0c59fb238bea02b248c90b89698}\label{class_main_window_a0edca0c59fb238bea02b248c90b89698}} 
+\index{Main\+Window@{Main\+Window}!show\+Message@{show\+Message}}
+\index{show\+Message@{show\+Message}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{show\+Message}{showMessage}}
+{\footnotesize\ttfamily void Main\+Window\+::show\+Message (\begin{DoxyParamCaption}\item[{Q\+String}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyCode}
+26                                        \{
+27   ui->\mbox{\hyperlink{class_ui___main_window_a2c789c07fa5fc1cee05aae8df52bb02d}{textBrowser}}->append(msg);
+28 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/mateu/\+Documents/\+Projeto Final D\+C\+A 1202/\+Qt\+Tcp\+Server/\mbox{\hyperlink{mainwindow_8h}{mainwindow.\+h}}\item 
+C\+:/\+Users/mateu/\+Documents/\+Projeto Final D\+C\+A 1202/\+Qt\+Tcp\+Server/\mbox{\hyperlink{mainwindow_8cpp}{mainwindow.\+cpp}}\end{DoxyCompactItemize}

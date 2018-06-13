@@ -1,0 +1,226 @@
+\hypertarget{class_main_window}{}\section{Referência da Classe Main\+Window}
+\label{class_main_window}\index{Main\+Window@{Main\+Window}}
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+Diagrama de hierarquia para Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_window}
+\end{center}
+\end{figure}
+\subsection*{Slots Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_main_window_ac5b669957c442b6eb68573dacfce33e1}{tcp\+Connect}} ()
+\begin{DoxyCompactList}\small\item\em Inicia conexao com servidor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a4d22c4c7afc7ba0a2fa4c70515c85dda}{tcp\+Disconnect}} ()
+\begin{DoxyCompactList}\small\item\em Se desconecta do servidor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_afdfeb13ec363b0eb8ecacaf0aa13b605}{put\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Envia dados. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_main_window_a57a1f8959ed5f0eee73281829b2331fa}{get\+Host}} ()
+\begin{DoxyCompactList}\small\item\em Pega host fornecido pelo usuário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a79fdaf1fd769f0584f50da34e415b3de}{stop\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Para de enviar dados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a9d08a694a5f9c532225754381b8011ea}{timer\+Event}} (Q\+Timer\+Event $\ast$e)
+\begin{DoxyCompactList}\small\item\em Timer event para repetir o \mbox{\hyperlink{class_main_window_afdfeb13ec363b0eb8ecacaf0aa13b605}{put\+Data()}} de acordo com a quantidade de milissegundos fornecidos pelo usuário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{Main\+Window}} (Q\+Widget $\ast$parent=0)
+\item 
+\mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\+Main\+Window}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}\label{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}} 
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{Main\+Window()}{MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+\begin{DoxyCode}
+10                                       :
+11     QMainWindow(parent), ui(\textcolor{keyword}{new} Ui::MainWindow)\{
+12     ui->setupUi(\textcolor{keyword}{this});
+13     socket = \textcolor{keyword}{new} QTcpSocket(\textcolor{keyword}{this});
+14  
+15     connect(ui->pushButtonPut,
+16             SIGNAL(clicked(\textcolor{keywordtype}{bool})),
+17             \textcolor{keyword}{this},
+18             SLOT(\mbox{\hyperlink{class_main_window_afdfeb13ec363b0eb8ecacaf0aa13b605}{putData}}()));
+19     connect(ui->pushButton\_connect,
+20             SIGNAL(clicked(\textcolor{keywordtype}{bool})),
+21             \textcolor{keyword}{this},
+22             SLOT(\mbox{\hyperlink{class_main_window_ac5b669957c442b6eb68573dacfce33e1}{tcpConnect}}()));
+23     connect(ui->pushButton\_stop,
+24             SIGNAL(clicked(\textcolor{keywordtype}{bool})),
+25             \textcolor{keyword}{this},
+26             SLOT(\mbox{\hyperlink{class_main_window_a79fdaf1fd769f0584f50da34e415b3de}{stopData}}()));
+27     connect(ui->pushButton\_disconnect,
+28             SIGNAL (clicked(\textcolor{keywordtype}{bool})),
+29             \textcolor{keyword}{this},
+30             SLOT(\mbox{\hyperlink{class_main_window_a4d22c4c7afc7ba0a2fa4c70515c85dda}{tcpDisconnect}}()));
+31 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}} 
+\index{Main\+Window@{Main\+Window}!````~Main\+Window@{$\sim$\+Main\+Window}}
+\index{````~Main\+Window@{$\sim$\+Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{$\sim$\+Main\+Window()}{~MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::$\sim$\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+97                        \{
+98     \textcolor{keyword}{delete} socket;
+99     \textcolor{keyword}{delete} ui;
+100 \}
+\end{DoxyCode}
+
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_main_window_a57a1f8959ed5f0eee73281829b2331fa}\label{class_main_window_a57a1f8959ed5f0eee73281829b2331fa}} 
+\index{Main\+Window@{Main\+Window}!get\+Host@{get\+Host}}
+\index{get\+Host@{get\+Host}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{get\+Host}{getHost}}
+{\footnotesize\ttfamily Q\+String Main\+Window\+::get\+Host (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Pega host fornecido pelo usuário. 
+
+
+\begin{DoxyCode}
+56                            \{
+57     QString ip;
+58  
+59     ip = ui->lineEdit\_Host->text();
+60  
+61     \textcolor{keywordflow}{return} ip;
+62  
+63 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_main_window_afdfeb13ec363b0eb8ecacaf0aa13b605}\label{class_main_window_afdfeb13ec363b0eb8ecacaf0aa13b605}} 
+\index{Main\+Window@{Main\+Window}!put\+Data@{put\+Data}}
+\index{put\+Data@{put\+Data}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{put\+Data}{putData}}
+{\footnotesize\ttfamily void Main\+Window\+::put\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Envia dados. 
+
+
+\begin{DoxyCode}
+48                         \{
+49     QString timeStr;
+50  
+51     timeStr = ui->label\_time->text();
+52     idTimer = startTimer((timeStr.toInt())*1000);
+53  
+54 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_main_window_a79fdaf1fd769f0584f50da34e415b3de}\label{class_main_window_a79fdaf1fd769f0584f50da34e415b3de}} 
+\index{Main\+Window@{Main\+Window}!stop\+Data@{stop\+Data}}
+\index{stop\+Data@{stop\+Data}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{stop\+Data}{stopData}}
+{\footnotesize\ttfamily void Main\+Window\+::stop\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Para de enviar dados. 
+
+
+\begin{DoxyCode}
+65                          \{
+66     killTimer(idTimer);
+67 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_main_window_ac5b669957c442b6eb68573dacfce33e1}\label{class_main_window_ac5b669957c442b6eb68573dacfce33e1}} 
+\index{Main\+Window@{Main\+Window}!tcp\+Connect@{tcp\+Connect}}
+\index{tcp\+Connect@{tcp\+Connect}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{tcp\+Connect}{tcpConnect}}
+{\footnotesize\ttfamily void Main\+Window\+::tcp\+Connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Inicia conexao com servidor. 
+
+
+\begin{DoxyCode}
+33                            \{
+34     socket->connectToHost(\mbox{\hyperlink{class_main_window_a57a1f8959ed5f0eee73281829b2331fa}{getHost}}(),1234);
+35     \textcolor{keywordflow}{if}(socket->waitForConnected(3000))\{
+36         qDebug() << \textcolor{stringliteral}{"Connected"};
+37     \}
+38     \textcolor{keywordflow}{else}\{
+39         qDebug() << \textcolor{stringliteral}{"Disconnected"};
+40     \}
+41 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_main_window_a4d22c4c7afc7ba0a2fa4c70515c85dda}\label{class_main_window_a4d22c4c7afc7ba0a2fa4c70515c85dda}} 
+\index{Main\+Window@{Main\+Window}!tcp\+Disconnect@{tcp\+Disconnect}}
+\index{tcp\+Disconnect@{tcp\+Disconnect}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{tcp\+Disconnect}{tcpDisconnect}}
+{\footnotesize\ttfamily void Main\+Window\+::tcp\+Disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Se desconecta do servidor. 
+
+
+\begin{DoxyCode}
+43                               \{
+44     socket->disconnectFromHost();
+45 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_main_window_a9d08a694a5f9c532225754381b8011ea}\label{class_main_window_a9d08a694a5f9c532225754381b8011ea}} 
+\index{Main\+Window@{Main\+Window}!timer\+Event@{timer\+Event}}
+\index{timer\+Event@{timer\+Event}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{timer\+Event}{timerEvent}}
+{\footnotesize\ttfamily void Main\+Window\+::timer\+Event (\begin{DoxyParamCaption}\item[{Q\+Timer\+Event $\ast$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Timer event para repetir o \mbox{\hyperlink{class_main_window_afdfeb13ec363b0eb8ecacaf0aa13b605}{put\+Data()}} de acordo com a quantidade de milissegundos fornecidos pelo usuário. 
+
+
+\begin{DoxyCode}
+69                                          \{
+70     QString str;
+71     \textcolor{keywordtype}{int} max,min;
+72     qint64 msecdate;
+73  
+74     max = ui->lcdNumber\_max->value();
+75     min = ui->lcdNumber\_min->value();
+76  
+77     \textcolor{keywordflow}{if}(min>max)\{
+78         ui->textBrowser->insertPlainText(\textcolor{stringliteral}{"ERRO! O valor minimo inserido é maior que o valor maximo\(\backslash\)n"});
+79         killTimer(idTimer);
+80     \}
+81     \textcolor{keywordflow}{else}\{
+82         \textcolor{keywordflow}{if}(socket->state()== QAbstractSocket::ConnectedState)\{
+83             msecdate = QDateTime::currentDateTime().toMSecsSinceEpoch();
+84  
+85             str = \textcolor{stringliteral}{"set "}+ QString::number(msecdate) + \textcolor{stringliteral}{" "} + QString::number(qrand()%(max - min) + min)+\textcolor{stringliteral}{"\(\backslash\)r
+      \(\backslash\)n"};
+86             ui->textBrowser->append(str);
+87  
+88             qDebug() << str;
+89             qDebug() << socket->write(str.toStdString().c\_str()) << \textcolor{stringliteral}{" bytes written"};
+90             \textcolor{keywordflow}{if}(socket->waitForBytesWritten(3000))\{
+91                 qDebug() << \textcolor{stringliteral}{"wrote"};
+92             \}
+93         \}
+94     \}
+95 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/mateu/\+Documents/\+Projeto Final D\+C\+A 1202/\+Cliente\+\_\+\+Produtor/\mbox{\hyperlink{mainwindow_8h}{mainwindow.\+h}}\item 
+C\+:/\+Users/mateu/\+Documents/\+Projeto Final D\+C\+A 1202/\+Cliente\+\_\+\+Produtor/\mbox{\hyperlink{mainwindow_8cpp}{mainwindow.\+cpp}}\end{DoxyCompactItemize}

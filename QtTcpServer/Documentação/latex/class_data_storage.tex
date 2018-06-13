@@ -1,0 +1,141 @@
+\hypertarget{class_data_storage}{}\section{Referência da Classe Data\+Storage}
+\label{class_data_storage}\index{Data\+Storage@{Data\+Storage}}
+
+
+{\ttfamily \#include $<$datastorage.\+h$>$}
+
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_storage_a22825d40495dae6a5df46d629fb26a3f}{Data\+Storage}} ()
+\item 
+vector$<$ \mbox{\hyperlink{struct_entry}{Entry}} $>$ \mbox{\hyperlink{class_data_storage_a716fe9bd808cb8ea9f0ef153bf01a633}{get\+Data}} (Q\+Host\+Address address, unsigned int lastn=2)
+\item 
+void \mbox{\hyperlink{class_data_storage_ab46b18762db5b17b3e0a97150079cb78}{add\+Data}} (Q\+Host\+Address address, qint64 time, float measurement)
+\item 
+void \mbox{\hyperlink{class_data_storage_a6d1d74566ca198c807a9dbbb16019472}{delete\+Host}} (quint32 address)
+\item 
+vector$<$ Q\+Host\+Address $>$ \mbox{\hyperlink{class_data_storage_a05e60f4e62fb68f588e3f381d40b6bbd}{get\+Host\+List}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_data_storage_a22825d40495dae6a5df46d629fb26a3f}\label{class_data_storage_a22825d40495dae6a5df46d629fb26a3f}} 
+\index{Data\+Storage@{Data\+Storage}!Data\+Storage@{Data\+Storage}}
+\index{Data\+Storage@{Data\+Storage}!Data\+Storage@{Data\+Storage}}
+\subsubsection{\texorpdfstring{Data\+Storage()}{DataStorage()}}
+{\footnotesize\ttfamily Data\+Storage\+::\+Data\+Storage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+15                          : mutex()\{
+16 \}
+\end{DoxyCode}
+
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_data_storage_ab46b18762db5b17b3e0a97150079cb78}\label{class_data_storage_ab46b18762db5b17b3e0a97150079cb78}} 
+\index{Data\+Storage@{Data\+Storage}!add\+Data@{add\+Data}}
+\index{add\+Data@{add\+Data}!Data\+Storage@{Data\+Storage}}
+\subsubsection{\texorpdfstring{add\+Data()}{addData()}}
+{\footnotesize\ttfamily void Data\+Storage\+::add\+Data (\begin{DoxyParamCaption}\item[{Q\+Host\+Address}]{address,  }\item[{qint64}]{time,  }\item[{float}]{measurement }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+55                                                                              \{
+56   \mbox{\hyperlink{struct_entry}{Entry}} entry;
+57 
+58   QMutexLocker ml(&mutex);
+59 
+60   entry.\mbox{\hyperlink{struct_entry_a0a78d616ccc342ef6c34d849288d7c85}{theTime}} = time;
+61   entry.\mbox{\hyperlink{struct_entry_a78ebc6241b1baaa2551b2cf89f519960}{measurement}} = measurement;
+62   dataIterator = data.find(address.toIPv4Address());
+63   \textcolor{keywordflow}{if}(dataIterator != data.end())\{
+64   \textcolor{comment}{//  qDebug() << "passou: " << address.toIPv4Address() ;}
+65     data[address.toIPv4Address()].push\_back(entry);
+66   \textcolor{comment}{//  qDebug() << "data.size" << data[address.toIPv4Address()].size();}
+67   \}
+68   \textcolor{keywordflow}{else}\{
+69     vector<Entry> start;
+70     start.push\_back(entry);
+71     data.insert(address.toIPv4Address(), start);
+72   \}
+73  \textcolor{comment}{// qDebug() << "saiu addData";}
+74 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_data_storage_a6d1d74566ca198c807a9dbbb16019472}\label{class_data_storage_a6d1d74566ca198c807a9dbbb16019472}} 
+\index{Data\+Storage@{Data\+Storage}!delete\+Host@{delete\+Host}}
+\index{delete\+Host@{delete\+Host}!Data\+Storage@{Data\+Storage}}
+\subsubsection{\texorpdfstring{delete\+Host()}{deleteHost()}}
+{\footnotesize\ttfamily void Data\+Storage\+::delete\+Host (\begin{DoxyParamCaption}\item[{quint32}]{address }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_data_storage_a716fe9bd808cb8ea9f0ef153bf01a633}\label{class_data_storage_a716fe9bd808cb8ea9f0ef153bf01a633}} 
+\index{Data\+Storage@{Data\+Storage}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Data\+Storage@{Data\+Storage}}
+\subsubsection{\texorpdfstring{get\+Data()}{getData()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{struct_entry}{Entry}} $>$ Data\+Storage\+::get\+Data (\begin{DoxyParamCaption}\item[{Q\+Host\+Address}]{address,  }\item[{unsigned int}]{lastn = {\ttfamily 2} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+18                                                                           \{
+19   \textcolor{comment}{// trabalhando aqui...}
+20 
+21 
+22   vector<Entry> range;
+23   vector<Entry>::iterator vi;
+24   \textcolor{comment}{// locks the mutex so}
+25   QMutexLocker ml(&mutex);
+26   dataIterator = data.find(address.toIPv4Address());
+27   \textcolor{keywordflow}{if}(dataIterator != data.end())\{
+28     \textcolor{keywordflow}{if}(dataIterator.value().size() <= lastn)\{
+29       qDebug() << \textcolor{stringliteral}{"passou dataiterator"};
+30       \textcolor{keywordflow}{return} (dataIterator.value());
+31     \}
+32     \textcolor{keywordflow}{else}\{
+33       qDebug() << \textcolor{stringliteral}{"entrou copy"};
+34       qDebug() << \textcolor{stringliteral}{"size = "} << dataIterator.value().size();
+35       qDebug() << \textcolor{stringliteral}{"distance = "} << distance(dataIterator.value().end()-lastn, dataIterator.value().end());
+36       \textcolor{keywordflow}{for}(vi=dataIterator.value().end()-lastn; vi!=dataIterator.value().end(); vi++)\{
+37         range.push\_back(*vi);
+38       \}
+39       \textcolor{comment}{// do not copy until .end()! it will go out of the boundaries O.o}
+40      \textcolor{comment}{// range.reserve(distance(dataIterator.value().end()-lastn, dataIterator.value().end()));}
+41      \textcolor{comment}{// std::copy(dataIterator.value().end()-lastn, dataIterator.value().end(), range.begin());}
+42 
+43       qDebug() << \textcolor{stringliteral}{"passou copy = "} << range.size();
+44       \textcolor{keywordflow}{return} (range);
+45     \}
+46   \}
+47   \textcolor{comment}{//copy\_if(dataIterator.value().begin(), dataIterator.value().end(), back\_inserter(range),
+       RangeTest(startTime));}
+48   \textcolor{comment}{// return(range);}
+49   \textcolor{comment}{//return(dataIterator.value());}
+50   \textcolor{keywordflow}{else}\{
+51       \textcolor{keywordflow}{return}(vector<Entry>());
+52   \}
+53 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_data_storage_a05e60f4e62fb68f588e3f381d40b6bbd}\label{class_data_storage_a05e60f4e62fb68f588e3f381d40b6bbd}} 
+\index{Data\+Storage@{Data\+Storage}!get\+Host\+List@{get\+Host\+List}}
+\index{get\+Host\+List@{get\+Host\+List}!Data\+Storage@{Data\+Storage}}
+\subsubsection{\texorpdfstring{get\+Host\+List()}{getHostList()}}
+{\footnotesize\ttfamily vector$<$ Q\+Host\+Address $>$ Data\+Storage\+::get\+Host\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+77 \{
+78   vector<QHostAddress> hostList;
+79   QList<quint32> uintList;
+80   uintList = data.keys();
+81   \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<uintList.size(); i++)\{
+82     hostList.push\_back(QHostAddress(uintList[i]));
+83   \}
+84   \textcolor{keywordflow}{return} hostList;
+85 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/mateu/\+Documents/\+Projeto Final D\+C\+A 1202/\+Qt\+Tcp\+Server/\mbox{\hyperlink{datastorage_8h}{datastorage.\+h}}\item 
+C\+:/\+Users/mateu/\+Documents/\+Projeto Final D\+C\+A 1202/\+Qt\+Tcp\+Server/\mbox{\hyperlink{datastorage_8cpp}{datastorage.\+cpp}}\end{DoxyCompactItemize}

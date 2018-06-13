@@ -1,0 +1,201 @@
+\hypertarget{class_ui___main_window}{}\section{Referência da Classe Ui\+\_\+\+Main\+Window}
+\label{class_ui___main_window}\index{Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}}
+
+
+{\ttfamily \#include $<$ui\+\_\+mainwindow.\+h$>$}
+
+Diagrama de hierarquia para Ui\+\_\+\+Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ui___main_window}
+\end{center}
+\end{figure}
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ui___main_window_acf4a0872c4c77d8f43a2ec66ed849b58}{setup\+Ui}} (Q\+Main\+Window $\ast$\mbox{\hyperlink{class_main_window}{Main\+Window}})
+\item 
+void \mbox{\hyperlink{class_ui___main_window_a097dd160c3534a204904cb374412c618}{retranslate\+Ui}} (Q\+Main\+Window $\ast$\mbox{\hyperlink{class_main_window}{Main\+Window}})
+\end{DoxyCompactItemize}
+\subsection*{Atributos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Widget $\ast$ \mbox{\hyperlink{class_ui___main_window_a30075506c2116c3ed4ff25e07ae75f81}{central\+Widget}}
+\item 
+Q\+H\+Box\+Layout $\ast$ \mbox{\hyperlink{class_ui___main_window_a03ce63974cc69b067c91bbf285cceca8}{horizontal\+Layout\+\_\+3}}
+\item 
+Q\+Group\+Box $\ast$ \mbox{\hyperlink{class_ui___main_window_aef7cb3be8cecfc9aaf98f036a98781ce}{group\+Box}}
+\item 
+Q\+H\+Box\+Layout $\ast$ \mbox{\hyperlink{class_ui___main_window_acd6fdc9ebacc4b25b834162380d75ce8}{horizontal\+Layout}}
+\item 
+Q\+List\+Widget $\ast$ \mbox{\hyperlink{class_ui___main_window_ae647a15635ba8a0e5d5aec475db99d8f}{list\+Widget}}
+\item 
+Q\+Group\+Box $\ast$ \mbox{\hyperlink{class_ui___main_window_abb28acde35ffce4d0e6152579df2cbc3}{group\+Box\+\_\+2}}
+\item 
+Q\+H\+Box\+Layout $\ast$ \mbox{\hyperlink{class_ui___main_window_a80867018070156432923d0266cc9fe25}{horizontal\+Layout\+\_\+2}}
+\item 
+Q\+Text\+Browser $\ast$ \mbox{\hyperlink{class_ui___main_window_a2c789c07fa5fc1cee05aae8df52bb02d}{text\+Browser}}
+\item 
+Q\+Menu\+Bar $\ast$ \mbox{\hyperlink{class_ui___main_window_a2be1c24ec9adfca18e1dcc951931457f}{menu\+Bar}}
+\item 
+Q\+Tool\+Bar $\ast$ \mbox{\hyperlink{class_ui___main_window_a5172877001c8c7b4e0f6de50421867d1}{main\+Tool\+Bar}}
+\item 
+Q\+Status\+Bar $\ast$ \mbox{\hyperlink{class_ui___main_window_a50fa481337604bcc8bf68de18ab16ecd}{status\+Bar}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_ui___main_window_a097dd160c3534a204904cb374412c618}\label{class_ui___main_window_a097dd160c3534a204904cb374412c618}} 
+\index{Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}!retranslate\+Ui@{retranslate\+Ui}}
+\index{retranslate\+Ui@{retranslate\+Ui}!Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}}
+\subsubsection{\texorpdfstring{retranslate\+Ui()}{retranslateUi()}}
+{\footnotesize\ttfamily void Ui\+\_\+\+Main\+Window\+::retranslate\+Ui (\begin{DoxyParamCaption}\item[{Q\+Main\+Window $\ast$}]{Main\+Window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+103     \{
+104         \mbox{\hyperlink{class_main_window}{MainWindow}}->setWindowTitle(QApplication::translate(\textcolor{stringliteral}{"MainWindow"}, \textcolor{stringliteral}{"MainWindow"}, Q\_NULLPTR)
+      );
+105         \mbox{\hyperlink{class_ui___main_window_aef7cb3be8cecfc9aaf98f036a98781ce}{groupBox}}->setTitle(QApplication::translate(\textcolor{stringliteral}{"MainWindow"}, \textcolor{stringliteral}{"IPs do servidor"}, Q\_NULLPTR));
+106         \mbox{\hyperlink{class_ui___main_window_abb28acde35ffce4d0e6152579df2cbc3}{groupBox\_2}}->setTitle(QApplication::translate(\textcolor{stringliteral}{"MainWindow"}, \textcolor{stringliteral}{"Mensagens"}, Q\_NULLPTR));
+107     \} \textcolor{comment}{// retranslateUi}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_ui___main_window_acf4a0872c4c77d8f43a2ec66ed849b58}\label{class_ui___main_window_acf4a0872c4c77d8f43a2ec66ed849b58}} 
+\index{Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}!setup\+Ui@{setup\+Ui}}
+\index{setup\+Ui@{setup\+Ui}!Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}}
+\subsubsection{\texorpdfstring{setup\+Ui()}{setupUi()}}
+{\footnotesize\ttfamily void Ui\+\_\+\+Main\+Window\+::setup\+Ui (\begin{DoxyParamCaption}\item[{Q\+Main\+Window $\ast$}]{Main\+Window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+45     \{
+46         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_main_window}{MainWindow}}->objectName().isEmpty())
+47             \mbox{\hyperlink{class_main_window}{MainWindow}}->setObjectName(QStringLiteral(\textcolor{stringliteral}{"MainWindow"}));
+48         \mbox{\hyperlink{class_main_window}{MainWindow}}->resize(634, 411);
+49         \mbox{\hyperlink{class_ui___main_window_a30075506c2116c3ed4ff25e07ae75f81}{centralWidget}} = \textcolor{keyword}{new} QWidget(\mbox{\hyperlink{class_main_window}{MainWindow}});
+50         \mbox{\hyperlink{class_ui___main_window_a30075506c2116c3ed4ff25e07ae75f81}{centralWidget}}->setObjectName(QStringLiteral(\textcolor{stringliteral}{"centralWidget"}));
+51         \mbox{\hyperlink{class_ui___main_window_a03ce63974cc69b067c91bbf285cceca8}{horizontalLayout\_3}} = \textcolor{keyword}{new} QHBoxLayout(\mbox{\hyperlink{class_ui___main_window_a30075506c2116c3ed4ff25e07ae75f81}{centralWidget}});
+52         \mbox{\hyperlink{class_ui___main_window_a03ce63974cc69b067c91bbf285cceca8}{horizontalLayout\_3}}->setSpacing(6);
+53         \mbox{\hyperlink{class_ui___main_window_a03ce63974cc69b067c91bbf285cceca8}{horizontalLayout\_3}}->setContentsMargins(11, 11, 11, 11);
+54         \mbox{\hyperlink{class_ui___main_window_a03ce63974cc69b067c91bbf285cceca8}{horizontalLayout\_3}}->setObjectName(QStringLiteral(\textcolor{stringliteral}{"horizontalLayout\_3"}));
+55         \mbox{\hyperlink{class_ui___main_window_aef7cb3be8cecfc9aaf98f036a98781ce}{groupBox}} = \textcolor{keyword}{new} QGroupBox(\mbox{\hyperlink{class_ui___main_window_a30075506c2116c3ed4ff25e07ae75f81}{centralWidget}});
+56         \mbox{\hyperlink{class_ui___main_window_aef7cb3be8cecfc9aaf98f036a98781ce}{groupBox}}->setObjectName(QStringLiteral(\textcolor{stringliteral}{"groupBox"}));
+57         \mbox{\hyperlink{class_ui___main_window_acd6fdc9ebacc4b25b834162380d75ce8}{horizontalLayout}} = \textcolor{keyword}{new} QHBoxLayout(\mbox{\hyperlink{class_ui___main_window_aef7cb3be8cecfc9aaf98f036a98781ce}{groupBox}});
+58         \mbox{\hyperlink{class_ui___main_window_acd6fdc9ebacc4b25b834162380d75ce8}{horizontalLayout}}->setSpacing(6);
+59         \mbox{\hyperlink{class_ui___main_window_acd6fdc9ebacc4b25b834162380d75ce8}{horizontalLayout}}->setContentsMargins(11, 11, 11, 11);
+60         \mbox{\hyperlink{class_ui___main_window_acd6fdc9ebacc4b25b834162380d75ce8}{horizontalLayout}}->setObjectName(QStringLiteral(\textcolor{stringliteral}{"horizontalLayout"}));
+61         \mbox{\hyperlink{class_ui___main_window_ae647a15635ba8a0e5d5aec475db99d8f}{listWidget}} = \textcolor{keyword}{new} QListWidget(\mbox{\hyperlink{class_ui___main_window_aef7cb3be8cecfc9aaf98f036a98781ce}{groupBox}});
+62         \mbox{\hyperlink{class_ui___main_window_ae647a15635ba8a0e5d5aec475db99d8f}{listWidget}}->setObjectName(QStringLiteral(\textcolor{stringliteral}{"listWidget"}));
+63 
+64         \mbox{\hyperlink{class_ui___main_window_acd6fdc9ebacc4b25b834162380d75ce8}{horizontalLayout}}->addWidget(\mbox{\hyperlink{class_ui___main_window_ae647a15635ba8a0e5d5aec475db99d8f}{listWidget}});
+65 
+66 
+67         \mbox{\hyperlink{class_ui___main_window_a03ce63974cc69b067c91bbf285cceca8}{horizontalLayout\_3}}->addWidget(\mbox{\hyperlink{class_ui___main_window_aef7cb3be8cecfc9aaf98f036a98781ce}{groupBox}});
+68 
+69         \mbox{\hyperlink{class_ui___main_window_abb28acde35ffce4d0e6152579df2cbc3}{groupBox\_2}} = \textcolor{keyword}{new} QGroupBox(\mbox{\hyperlink{class_ui___main_window_a30075506c2116c3ed4ff25e07ae75f81}{centralWidget}});
+70         \mbox{\hyperlink{class_ui___main_window_abb28acde35ffce4d0e6152579df2cbc3}{groupBox\_2}}->setObjectName(QStringLiteral(\textcolor{stringliteral}{"groupBox\_2"}));
+71         \mbox{\hyperlink{class_ui___main_window_a80867018070156432923d0266cc9fe25}{horizontalLayout\_2}} = \textcolor{keyword}{new} QHBoxLayout(\mbox{\hyperlink{class_ui___main_window_abb28acde35ffce4d0e6152579df2cbc3}{groupBox\_2}});
+72         \mbox{\hyperlink{class_ui___main_window_a80867018070156432923d0266cc9fe25}{horizontalLayout\_2}}->setSpacing(6);
+73         \mbox{\hyperlink{class_ui___main_window_a80867018070156432923d0266cc9fe25}{horizontalLayout\_2}}->setContentsMargins(11, 11, 11, 11);
+74         \mbox{\hyperlink{class_ui___main_window_a80867018070156432923d0266cc9fe25}{horizontalLayout\_2}}->setObjectName(QStringLiteral(\textcolor{stringliteral}{"horizontalLayout\_2"}));
+75         \mbox{\hyperlink{class_ui___main_window_a2c789c07fa5fc1cee05aae8df52bb02d}{textBrowser}} = \textcolor{keyword}{new} QTextBrowser(\mbox{\hyperlink{class_ui___main_window_abb28acde35ffce4d0e6152579df2cbc3}{groupBox\_2}});
+76         \mbox{\hyperlink{class_ui___main_window_a2c789c07fa5fc1cee05aae8df52bb02d}{textBrowser}}->setObjectName(QStringLiteral(\textcolor{stringliteral}{"textBrowser"}));
+77 
+78         \mbox{\hyperlink{class_ui___main_window_a80867018070156432923d0266cc9fe25}{horizontalLayout\_2}}->addWidget(\mbox{\hyperlink{class_ui___main_window_a2c789c07fa5fc1cee05aae8df52bb02d}{textBrowser}});
+79 
+80 
+81         \mbox{\hyperlink{class_ui___main_window_a03ce63974cc69b067c91bbf285cceca8}{horizontalLayout\_3}}->addWidget(\mbox{\hyperlink{class_ui___main_window_abb28acde35ffce4d0e6152579df2cbc3}{groupBox\_2}});
+82 
+83         \mbox{\hyperlink{class_ui___main_window_a03ce63974cc69b067c91bbf285cceca8}{horizontalLayout\_3}}->setStretch(0, 40);
+84         \mbox{\hyperlink{class_ui___main_window_a03ce63974cc69b067c91bbf285cceca8}{horizontalLayout\_3}}->setStretch(1, 60);
+85         \mbox{\hyperlink{class_main_window}{MainWindow}}->setCentralWidget(\mbox{\hyperlink{class_ui___main_window_a30075506c2116c3ed4ff25e07ae75f81}{centralWidget}});
+86         \mbox{\hyperlink{class_ui___main_window_a2be1c24ec9adfca18e1dcc951931457f}{menuBar}} = \textcolor{keyword}{new} QMenuBar(\mbox{\hyperlink{class_main_window}{MainWindow}});
+87         \mbox{\hyperlink{class_ui___main_window_a2be1c24ec9adfca18e1dcc951931457f}{menuBar}}->setObjectName(QStringLiteral(\textcolor{stringliteral}{"menuBar"}));
+88         \mbox{\hyperlink{class_ui___main_window_a2be1c24ec9adfca18e1dcc951931457f}{menuBar}}->setGeometry(QRect(0, 0, 634, 22));
+89         \mbox{\hyperlink{class_main_window}{MainWindow}}->setMenuBar(\mbox{\hyperlink{class_ui___main_window_a2be1c24ec9adfca18e1dcc951931457f}{menuBar}});
+90         \mbox{\hyperlink{class_ui___main_window_a5172877001c8c7b4e0f6de50421867d1}{mainToolBar}} = \textcolor{keyword}{new} QToolBar(\mbox{\hyperlink{class_main_window}{MainWindow}});
+91         \mbox{\hyperlink{class_ui___main_window_a5172877001c8c7b4e0f6de50421867d1}{mainToolBar}}->setObjectName(QStringLiteral(\textcolor{stringliteral}{"mainToolBar"}));
+92         \mbox{\hyperlink{class_main_window}{MainWindow}}->addToolBar(Qt::TopToolBarArea, \mbox{\hyperlink{class_ui___main_window_a5172877001c8c7b4e0f6de50421867d1}{mainToolBar}});
+93         \mbox{\hyperlink{class_ui___main_window_a50fa481337604bcc8bf68de18ab16ecd}{statusBar}} = \textcolor{keyword}{new} QStatusBar(\mbox{\hyperlink{class_main_window}{MainWindow}});
+94         \mbox{\hyperlink{class_ui___main_window_a50fa481337604bcc8bf68de18ab16ecd}{statusBar}}->setObjectName(QStringLiteral(\textcolor{stringliteral}{"statusBar"}));
+95         \mbox{\hyperlink{class_main_window}{MainWindow}}->setStatusBar(\mbox{\hyperlink{class_ui___main_window_a50fa481337604bcc8bf68de18ab16ecd}{statusBar}});
+96 
+97         \mbox{\hyperlink{class_ui___main_window_a097dd160c3534a204904cb374412c618}{retranslateUi}}(\mbox{\hyperlink{class_main_window}{MainWindow}});
+98 
+99         QMetaObject::connectSlotsByName(\mbox{\hyperlink{class_main_window}{MainWindow}});
+100     \} \textcolor{comment}{// setupUi}
+\end{DoxyCode}
+
+
+\subsection{Atributos}
+\mbox{\Hypertarget{class_ui___main_window_a30075506c2116c3ed4ff25e07ae75f81}\label{class_ui___main_window_a30075506c2116c3ed4ff25e07ae75f81}} 
+\index{Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}!central\+Widget@{central\+Widget}}
+\index{central\+Widget@{central\+Widget}!Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}}
+\subsubsection{\texorpdfstring{central\+Widget}{centralWidget}}
+{\footnotesize\ttfamily Q\+Widget$\ast$ Ui\+\_\+\+Main\+Window\+::central\+Widget}
+
+\mbox{\Hypertarget{class_ui___main_window_aef7cb3be8cecfc9aaf98f036a98781ce}\label{class_ui___main_window_aef7cb3be8cecfc9aaf98f036a98781ce}} 
+\index{Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}!group\+Box@{group\+Box}}
+\index{group\+Box@{group\+Box}!Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}}
+\subsubsection{\texorpdfstring{group\+Box}{groupBox}}
+{\footnotesize\ttfamily Q\+Group\+Box$\ast$ Ui\+\_\+\+Main\+Window\+::group\+Box}
+
+\mbox{\Hypertarget{class_ui___main_window_abb28acde35ffce4d0e6152579df2cbc3}\label{class_ui___main_window_abb28acde35ffce4d0e6152579df2cbc3}} 
+\index{Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}!group\+Box\+\_\+2@{group\+Box\+\_\+2}}
+\index{group\+Box\+\_\+2@{group\+Box\+\_\+2}!Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}}
+\subsubsection{\texorpdfstring{group\+Box\+\_\+2}{groupBox\_2}}
+{\footnotesize\ttfamily Q\+Group\+Box$\ast$ Ui\+\_\+\+Main\+Window\+::group\+Box\+\_\+2}
+
+\mbox{\Hypertarget{class_ui___main_window_acd6fdc9ebacc4b25b834162380d75ce8}\label{class_ui___main_window_acd6fdc9ebacc4b25b834162380d75ce8}} 
+\index{Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}!horizontal\+Layout@{horizontal\+Layout}}
+\index{horizontal\+Layout@{horizontal\+Layout}!Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}}
+\subsubsection{\texorpdfstring{horizontal\+Layout}{horizontalLayout}}
+{\footnotesize\ttfamily Q\+H\+Box\+Layout$\ast$ Ui\+\_\+\+Main\+Window\+::horizontal\+Layout}
+
+\mbox{\Hypertarget{class_ui___main_window_a80867018070156432923d0266cc9fe25}\label{class_ui___main_window_a80867018070156432923d0266cc9fe25}} 
+\index{Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}!horizontal\+Layout\+\_\+2@{horizontal\+Layout\+\_\+2}}
+\index{horizontal\+Layout\+\_\+2@{horizontal\+Layout\+\_\+2}!Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}}
+\subsubsection{\texorpdfstring{horizontal\+Layout\+\_\+2}{horizontalLayout\_2}}
+{\footnotesize\ttfamily Q\+H\+Box\+Layout$\ast$ Ui\+\_\+\+Main\+Window\+::horizontal\+Layout\+\_\+2}
+
+\mbox{\Hypertarget{class_ui___main_window_a03ce63974cc69b067c91bbf285cceca8}\label{class_ui___main_window_a03ce63974cc69b067c91bbf285cceca8}} 
+\index{Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}!horizontal\+Layout\+\_\+3@{horizontal\+Layout\+\_\+3}}
+\index{horizontal\+Layout\+\_\+3@{horizontal\+Layout\+\_\+3}!Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}}
+\subsubsection{\texorpdfstring{horizontal\+Layout\+\_\+3}{horizontalLayout\_3}}
+{\footnotesize\ttfamily Q\+H\+Box\+Layout$\ast$ Ui\+\_\+\+Main\+Window\+::horizontal\+Layout\+\_\+3}
+
+\mbox{\Hypertarget{class_ui___main_window_ae647a15635ba8a0e5d5aec475db99d8f}\label{class_ui___main_window_ae647a15635ba8a0e5d5aec475db99d8f}} 
+\index{Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}!list\+Widget@{list\+Widget}}
+\index{list\+Widget@{list\+Widget}!Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}}
+\subsubsection{\texorpdfstring{list\+Widget}{listWidget}}
+{\footnotesize\ttfamily Q\+List\+Widget$\ast$ Ui\+\_\+\+Main\+Window\+::list\+Widget}
+
+\mbox{\Hypertarget{class_ui___main_window_a5172877001c8c7b4e0f6de50421867d1}\label{class_ui___main_window_a5172877001c8c7b4e0f6de50421867d1}} 
+\index{Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}!main\+Tool\+Bar@{main\+Tool\+Bar}}
+\index{main\+Tool\+Bar@{main\+Tool\+Bar}!Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}}
+\subsubsection{\texorpdfstring{main\+Tool\+Bar}{mainToolBar}}
+{\footnotesize\ttfamily Q\+Tool\+Bar$\ast$ Ui\+\_\+\+Main\+Window\+::main\+Tool\+Bar}
+
+\mbox{\Hypertarget{class_ui___main_window_a2be1c24ec9adfca18e1dcc951931457f}\label{class_ui___main_window_a2be1c24ec9adfca18e1dcc951931457f}} 
+\index{Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}!menu\+Bar@{menu\+Bar}}
+\index{menu\+Bar@{menu\+Bar}!Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}}
+\subsubsection{\texorpdfstring{menu\+Bar}{menuBar}}
+{\footnotesize\ttfamily Q\+Menu\+Bar$\ast$ Ui\+\_\+\+Main\+Window\+::menu\+Bar}
+
+\mbox{\Hypertarget{class_ui___main_window_a50fa481337604bcc8bf68de18ab16ecd}\label{class_ui___main_window_a50fa481337604bcc8bf68de18ab16ecd}} 
+\index{Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}!status\+Bar@{status\+Bar}}
+\index{status\+Bar@{status\+Bar}!Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}}
+\subsubsection{\texorpdfstring{status\+Bar}{statusBar}}
+{\footnotesize\ttfamily Q\+Status\+Bar$\ast$ Ui\+\_\+\+Main\+Window\+::status\+Bar}
+
+\mbox{\Hypertarget{class_ui___main_window_a2c789c07fa5fc1cee05aae8df52bb02d}\label{class_ui___main_window_a2c789c07fa5fc1cee05aae8df52bb02d}} 
+\index{Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}!text\+Browser@{text\+Browser}}
+\index{text\+Browser@{text\+Browser}!Ui\+\_\+\+Main\+Window@{Ui\+\_\+\+Main\+Window}}
+\subsubsection{\texorpdfstring{text\+Browser}{textBrowser}}
+{\footnotesize\ttfamily Q\+Text\+Browser$\ast$ Ui\+\_\+\+Main\+Window\+::text\+Browser}
+
+
+
+A documentação para essa classe foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/mateu/\+Documents/\+Projeto Final D\+C\+A 1202/\+Qt\+Tcp\+Server/\mbox{\hyperlink{ui__mainwindow_8h}{ui\+\_\+mainwindow.\+h}}\end{DoxyCompactItemize}
