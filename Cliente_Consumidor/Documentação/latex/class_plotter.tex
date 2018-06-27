@@ -1,0 +1,123 @@
+\hypertarget{class_plotter}{}\section{Plotter Class Reference}
+\label{class_plotter}\index{Plotter@{Plotter}}
+
+
+{\ttfamily \#include $<$plotter.\+h$>$}
+
+Inheritance diagram for Plotter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_plotter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plotter_a367b6890c36910a27ec710ac3693e64b}{Plotter}} (Q\+Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Construtor do \mbox{\hyperlink{class_plotter}{Plotter}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plotter_ac4341569909943e37e1ff756587e6e12}{paint\+Event}} (Q\+Paint\+Event $\ast$e)
+\begin{DoxyCompactList}\small\item\em Desenha retas através de pares de pontos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plotter_ae73b5093b98bbbebd6abdb4e7e7807ed}{load\+Data}} (std\+::vector$<$ double $>$, std\+::vector$<$ double $>$)
+\begin{DoxyCompactList}\small\item\em Função que carrega os dados e os prepara para mostrar no gráfico. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_plotter_a367b6890c36910a27ec710ac3693e64b}\label{class_plotter_a367b6890c36910a27ec710ac3693e64b}} 
+\index{Plotter@{Plotter}!Plotter@{Plotter}}
+\index{Plotter@{Plotter}!Plotter@{Plotter}}
+\subsubsection{\texorpdfstring{Plotter()}{Plotter()}}
+{\footnotesize\ttfamily Plotter\+::\+Plotter (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construtor do \mbox{\hyperlink{class_plotter}{Plotter}}. 
+
+
+\begin{DoxyCode}
+11                                 :
+12     QWidget(parent)\{
+13     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<30; i++)\{
+14         tempos.push\_back(i);
+15         dados.push\_back(i);
+16     \}
+17 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_plotter_ae73b5093b98bbbebd6abdb4e7e7807ed}\label{class_plotter_ae73b5093b98bbbebd6abdb4e7e7807ed}} 
+\index{Plotter@{Plotter}!load\+Data@{load\+Data}}
+\index{load\+Data@{load\+Data}!Plotter@{Plotter}}
+\subsubsection{\texorpdfstring{load\+Data()}{loadData()}}
+{\footnotesize\ttfamily void Plotter\+::load\+Data (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{,  }\item[{std\+::vector$<$ double $>$}]{ }\end{DoxyParamCaption})}
+
+
+
+Função que carrega os dados e os prepara para mostrar no gráfico. 
+
+
+\begin{DoxyCode}
+60                                                         \{
+61     tempos=t;
+62     dados=d;
+63     repaint();
+64 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_plotter_ac4341569909943e37e1ff756587e6e12}\label{class_plotter_ac4341569909943e37e1ff756587e6e12}} 
+\index{Plotter@{Plotter}!paint\+Event@{paint\+Event}}
+\index{paint\+Event@{paint\+Event}!Plotter@{Plotter}}
+\subsubsection{\texorpdfstring{paint\+Event()}{paintEvent()}}
+{\footnotesize\ttfamily void Plotter\+::paint\+Event (\begin{DoxyParamCaption}\item[{Q\+Paint\+Event $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Desenha retas através de pares de pontos. 
+
+
+\begin{DoxyCode}
+20 \{
+21     QPainter painter(\textcolor{keyword}{this});
+22     QBrush brush;
+23     QPen pen;
+24     \textcolor{keywordtype}{double} x1, x2, y1, y2;
+25 
+26     painter.setRenderHint(QPainter::Antialiasing);
+27 
+28     brush.setColor(QColor(255,255,200));
+29     brush.setStyle(Qt::SolidPattern);
+30 
+31 \textcolor{comment}{//    pen.setColor(QColor(255,0,0));}
+32 \textcolor{comment}{//    pen.setWidth(3);}
+33 
+34     painter.setBrush(brush);
+35     painter.setPen(pen);
+36 
+37     \textcolor{comment}{// desenha o fundo do plotter}
+38     painter.drawRect(0,0,width(), height());
+39 
+40     pen.setColor(QColor(0,0,255));
+41     pen.setWidth(2);
+42     pen.setStyle(Qt::SolidLine);
+43     painter.setPen(pen);
+44 
+45     \textcolor{comment}{//plotando graficos}
+46 
+47     x1 = tempos[0]*width();
+48     y1 = dados[0]*(height()-dados[0]);
+49 
+50     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=1; i<30; i++)\{
+51         x2=tempos[i]*width();
+52         y2=dados[i]*(height()-dados[i]);
+53         painter.drawLine(x1,y1,x2,y2);
+54         x1 = x2;
+55         y1 = y2;
+56     \}
+57 
+58 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/mateu/\+Documents/\+Cliente\+\_\+\+Consumidor/\mbox{\hyperlink{plotter_8h}{plotter.\+h}}\item 
+C\+:/\+Users/mateu/\+Documents/\+Cliente\+\_\+\+Consumidor/\mbox{\hyperlink{plotter_8cpp}{plotter.\+cpp}}\end{DoxyCompactItemize}

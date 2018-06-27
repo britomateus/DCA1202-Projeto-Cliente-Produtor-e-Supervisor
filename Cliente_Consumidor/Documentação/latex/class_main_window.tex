@@ -1,0 +1,293 @@
+\hypertarget{class_main_window}{}\section{Main\+Window Class Reference}
+\label{class_main_window}\index{Main\+Window@{Main\+Window}}
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+Inheritance diagram for Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_window}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_main_window_a26b6030035e196b64333906db8302cdd}{tcp\+Connect}} (void)
+\begin{DoxyCompactList}\small\item\em Realiza conexão com o server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a3389bbbe4222f115a7609037a1a63bd5}{tcp\+Disconnect}} (void)
+\begin{DoxyCompactList}\small\item\em Desconecta do server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_ac6d3a5fa8ef8ede69436b9e9a6ee80c1}{get\+Data}} (void)
+\begin{DoxyCompactList}\small\item\em Captura dados do servidor de acordo com o tempo determinado pelo user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a2e3dceeb08f18cc1d07e42b79fe7a0c1}{stop\+Data}} (void)
+\begin{DoxyCompactList}\small\item\em Para a captura de dados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a6d5ab019a97676b4edfe7d4b6a541455}{update\+Ip}} (void)
+\begin{DoxyCompactList}\small\item\em Mostra uma lista dos clientes conectados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a9d08a694a5f9c532225754381b8011ea}{timer\+Event}} (Q\+Timer\+Event $\ast$e)
+\begin{DoxyCompactList}\small\item\em Função que determina o tempo da captura de dados definido pelo user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{Main\+Window}} (Q\+Widget $\ast$parent=0)
+\item 
+\mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\+Main\+Window}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}\label{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}} 
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{Main\+Window()}{MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+\begin{DoxyCode}
+13                                       :
+14     QMainWindow(parent),
+15     ui(\textcolor{keyword}{new} Ui::MainWindow)
+16 \{
+17     ui->setupUi(\textcolor{keyword}{this});
+18     socket = \textcolor{keyword}{new} QTcpSocket(\textcolor{keyword}{this});
+19     idTimer = 0;
+20 
+21     connect(ui->pushButtonGet,
+22             SIGNAL(clicked(\textcolor{keywordtype}{bool})),
+23             \textcolor{keyword}{this},
+24             SLOT(\mbox{\hyperlink{class_main_window_ac6d3a5fa8ef8ede69436b9e9a6ee80c1}{getData}}()));
+25     connect(ui->pushButton\_Stop,
+26             SIGNAL(clicked(\textcolor{keywordtype}{bool})),
+27             \textcolor{keyword}{this},
+28             SLOT(\mbox{\hyperlink{class_main_window_a2e3dceeb08f18cc1d07e42b79fe7a0c1}{stopData}}()));
+29     connect(ui->pushButton\_Connect,
+30             SIGNAL(clicked(\textcolor{keywordtype}{bool})),
+31             \textcolor{keyword}{this},
+32             SLOT(\mbox{\hyperlink{class_main_window_a26b6030035e196b64333906db8302cdd}{tcpConnect}}()));
+33     connect(ui->pushButton\_Disconnect,
+34             SIGNAL(clicked(\textcolor{keywordtype}{bool})),
+35             \textcolor{keyword}{this},
+36             SLOT(\mbox{\hyperlink{class_main_window_a3389bbbe4222f115a7609037a1a63bd5}{tcpDisconnect}}()));
+37     connect(ui->pushButton\_Update,
+38             SIGNAL(clicked(\textcolor{keywordtype}{bool})),
+39             \textcolor{keyword}{this},
+40             SLOT(\mbox{\hyperlink{class_main_window_a6d5ab019a97676b4edfe7d4b6a541455}{updateIp}}()));
+41 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}} 
+\index{Main\+Window@{Main\+Window}!````~Main\+Window@{$\sim$\+Main\+Window}}
+\index{````~Main\+Window@{$\sim$\+Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{$\sim$\+Main\+Window()}{~MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::$\sim$\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+170 \{
+171     \textcolor{keyword}{delete} socket;
+172     \textcolor{keyword}{delete} ui;
+173 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_main_window_ac6d3a5fa8ef8ede69436b9e9a6ee80c1}\label{class_main_window_ac6d3a5fa8ef8ede69436b9e9a6ee80c1}} 
+\index{Main\+Window@{Main\+Window}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{get\+Data}{getData}}
+{\footnotesize\ttfamily void Main\+Window\+::get\+Data (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Captura dados do servidor de acordo com o tempo determinado pelo user. 
+
+
+\begin{DoxyCode}
+58                         \{
+59     \textcolor{keywordflow}{if}(idTimer)\{
+60         killTimer(idTimer);
+61     \}
+62     idTimer = startTimer(ui->horizontalSlider\_Time->value()*1000);
+63 
+64 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_main_window_a2e3dceeb08f18cc1d07e42b79fe7a0c1}\label{class_main_window_a2e3dceeb08f18cc1d07e42b79fe7a0c1}} 
+\index{Main\+Window@{Main\+Window}!stop\+Data@{stop\+Data}}
+\index{stop\+Data@{stop\+Data}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{stop\+Data}{stopData}}
+{\footnotesize\ttfamily void Main\+Window\+::stop\+Data (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Para a captura de dados. 
+
+
+\begin{DoxyCode}
+143                              \{
+144     \textcolor{keywordflow}{if}(idTimer)\{
+145         killTimer(idTimer);
+146     \}
+147 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_main_window_a26b6030035e196b64333906db8302cdd}\label{class_main_window_a26b6030035e196b64333906db8302cdd}} 
+\index{Main\+Window@{Main\+Window}!tcp\+Connect@{tcp\+Connect}}
+\index{tcp\+Connect@{tcp\+Connect}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{tcp\+Connect}{tcpConnect}}
+{\footnotesize\ttfamily void Main\+Window\+::tcp\+Connect (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Realiza conexão com o server. 
+
+
+\begin{DoxyCode}
+43                            \{
+44     socket->connectToHost(ui->lineEdit\_Host->text(),1234);
+45     \textcolor{keywordflow}{if}(socket->waitForConnected())\{
+46         qDebug() << \textcolor{stringliteral}{"Connected"};
+47     \}
+48     \textcolor{keywordflow}{else}\{
+49         qDebug() << \textcolor{stringliteral}{"Disconnected"};
+50     \}
+51 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_main_window_a3389bbbe4222f115a7609037a1a63bd5}\label{class_main_window_a3389bbbe4222f115a7609037a1a63bd5}} 
+\index{Main\+Window@{Main\+Window}!tcp\+Disconnect@{tcp\+Disconnect}}
+\index{tcp\+Disconnect@{tcp\+Disconnect}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{tcp\+Disconnect}{tcpDisconnect}}
+{\footnotesize\ttfamily void Main\+Window\+::tcp\+Disconnect (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Desconecta do server. 
+
+
+\begin{DoxyCode}
+53                               \{
+54     socket->disconnectFromHost();
+55 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_main_window_a9d08a694a5f9c532225754381b8011ea}\label{class_main_window_a9d08a694a5f9c532225754381b8011ea}} 
+\index{Main\+Window@{Main\+Window}!timer\+Event@{timer\+Event}}
+\index{timer\+Event@{timer\+Event}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{timer\+Event}{timerEvent}}
+{\footnotesize\ttfamily void Main\+Window\+::timer\+Event (\begin{DoxyParamCaption}\item[{Q\+Timer\+Event $\ast$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Função que determina o tempo da captura de dados definido pelo user. 
+
+
+\begin{DoxyCode}
+66                                          \{
+67     QString str;
+68     QStringList list;
+69     qint64 thetime, num;
+70     \textcolor{keywordtype}{double} max\_x, min\_x, min\_y, max\_y;
+71     std::vector<double> time;
+72     std::vector<double> data;
+73     std::vector<double> temposnorm;
+74     std::vector<double> dadosnorm;
+75 
+76     qDebug() << \textcolor{stringliteral}{"to get data..."};
+77     \textcolor{keywordflow}{if}(socket->state() == QAbstractSocket::ConnectedState)\{
+78         \textcolor{keywordflow}{if}(socket->isOpen())\{
+79             qDebug() << \textcolor{stringliteral}{"reading..."};
+80             str = \textcolor{stringliteral}{"get "} + ui->listWidget\_ListaDeClients->currentItem()->text() + \textcolor{stringliteral}{" 30\(\backslash\)r\(\backslash\)n"};
+81             socket->write(str.toStdString().c\_str());
+82             socket->waitForBytesWritten();
+83             socket->waitForReadyRead();
+84             qDebug() << socket->bytesAvailable();
+85             time.clear();
+86             data.clear();
+87             \textcolor{keywordflow}{while}(socket->bytesAvailable())\{
+88                 str = socket->readLine().replace(\textcolor{stringliteral}{"\(\backslash\)n"},\textcolor{stringliteral}{""}).replace(\textcolor{stringliteral}{"\(\backslash\)r"},\textcolor{stringliteral}{""});
+89                 list = str.split(\textcolor{stringliteral}{" "});
+90 
+91                 \textcolor{keywordflow}{if}(list.size() == 2)\{
+92                     \textcolor{keywordtype}{bool} ok;
+93                     str = list.at(0);
+94                     thetime = str.toLongLong(&ok);
+95                     time.push\_back(thetime);
+96 
+97                     str = list.at(1);
+98                     num = str.toLongLong(&ok);
+99                     data.push\_back(num);
+100                     qDebug() << thetime << \textcolor{stringliteral}{": "} << str;
+101                 \}
+102             \}
+103         \}
+104     \}
+105 
+106     qDebug()<<data.size()<<time.size();
+107     \textcolor{comment}{//achando valores maximos e minimos}
+108     max\_x = time[0], min\_x = time[0];
+109     min\_y = data[0], max\_y = data[0];
+110 
+111     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1 ; i < 30; i++)\{
+112         \textcolor{keywordflow}{if}(time[i] < min\_x)\{
+113             min\_x = time[i];
+114         \}
+115         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(time[i] > max\_x)\{
+116             max\_x = time[i];
+117         \}
+118         \textcolor{keywordflow}{if}(data[i] < min\_y)\{
+119             min\_y = data[i];
+120         \}
+121         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(data[i] > max\_y)\{
+122             max\_y = data[i];
+123         \}
+124     \}
+125 
+126     qDebug()<<max\_x-min\_x;
+127 
+128 
+129     qDebug()<<max\_y<<min\_y;
+130 
+131 
+132     \textcolor{comment}{//normalizando dados}
+133     temposnorm.clear();
+134     dadosnorm.clear();
+135     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i<30; i++)\{
+136         temposnorm.push\_back((time[i] - min\_x)/(max\_x - min\_x));
+137         dadosnorm.push\_back((data[i] - min\_y)/(max\_y - min\_y));
+138     \}
+139     qDebug()<<\textcolor{stringliteral}{"passou"};
+140     ui->widget\_Plotter->loadData(temposnorm,dadosnorm);
+141 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_main_window_a6d5ab019a97676b4edfe7d4b6a541455}\label{class_main_window_a6d5ab019a97676b4edfe7d4b6a541455}} 
+\index{Main\+Window@{Main\+Window}!update\+Ip@{update\+Ip}}
+\index{update\+Ip@{update\+Ip}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{update\+Ip}{updateIp}}
+{\footnotesize\ttfamily void Main\+Window\+::update\+Ip (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Mostra uma lista dos clientes conectados. 
+
+
+\begin{DoxyCode}
+149                              \{
+150     QString str;
+151 
+152     ui->listWidget\_ListaDeClients->clear();
+153     \textcolor{keywordflow}{if}(socket->state() == QAbstractSocket::ConnectedState)\{
+154         socket->write(\textcolor{stringliteral}{"list\(\backslash\)r\(\backslash\)n"});
+155         socket->waitForBytesWritten();
+156         socket->waitForReadyRead();
+157         \textcolor{keywordflow}{while}(socket->bytesAvailable())\{
+158             str = socket->readLine().replace(\textcolor{stringliteral}{"\(\backslash\)n"},\textcolor{stringliteral}{""}).replace(\textcolor{stringliteral}{"\(\backslash\)r"},\textcolor{stringliteral}{""});
+159             ui->listWidget\_ListaDeClients->addItem(str);
+160         \}
+161     \}
+162     \textcolor{keywordflow}{else}\{
+163         ui->listWidget\_ListaDeClients->addItem(\textcolor{stringliteral}{"Lista vazia"});
+164     \}
+165 
+166 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/mateu/\+Documents/\+Cliente\+\_\+\+Consumidor/\mbox{\hyperlink{mainwindow_8h}{mainwindow.\+h}}\item 
+C\+:/\+Users/mateu/\+Documents/\+Cliente\+\_\+\+Consumidor/\mbox{\hyperlink{mainwindow_8cpp}{mainwindow.\+cpp}}\end{DoxyCompactItemize}

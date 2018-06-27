@@ -75,7 +75,7 @@ void MainWindow::timerEvent(QTimerEvent *e){
     min = ui->lcdNumber_min->value();
  
     if(min>max){
-        ui->textBrowser->insertPlainText("ERRO! O valor minimo inserido é maior que o valor maximo\n");
+        ui->textBrowser->insertPlainText("O valor minimo inserido é maior que o valor máximo\n");
         killTimer(idTimer);
     }
     else{

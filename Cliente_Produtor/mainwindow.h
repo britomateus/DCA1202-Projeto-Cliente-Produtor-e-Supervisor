@@ -20,27 +20,27 @@ public:
   
 public slots:
     /**
-    * @brief Inicia conexao com servidor
+    * @brief Realiza a conexão com o server
     */
     void tcpConnect();
     /**
-    * @brief Se desconecta do servidor
+    * @brief Desconecta do server
     */
     void tcpDisconnect();
     /**
-    * @brief Envia dados
+    * @brief Função para enviar os dados
     */
     void putData();
     /**
-    * @brief Pega host fornecido pelo usuário
+    * @brief Encontra o ip fornecido pelo user
     */
     QString getHost();
     /**
-    * @brief Para de enviar dados
+    * @brief Para o envio dos dados
     */
     void stopData();
     /**
-    * @brief Timer event para repetir o putData() de acordo com a quantidade de milissegundos fornecidos pelo usuário
+    * @brief Repete o envio de dados [putData()] de acordo com o intervalo de tempo definido pelo user
     */
     void timerEvent(QTimerEvent *e);
 private:
